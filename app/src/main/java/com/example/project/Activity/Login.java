@@ -61,13 +61,11 @@ verifyUser();
 
     private void verifyUser() {
 
-        if (email == Common.getEmail(Login.this) && password == Common.getPassword(Login.this)) {
-
-            Toast.makeText(this, "wrong details", Toast.LENGTH_SHORT).show();
+        if (email.equals(Common.getEmail(Login.this)) && password.equals(Common.getPassword(Login.this))) {
+            startActivity(new Intent(Login.this, Dashboard.class));
         }
         else {
-            startActivity(new Intent(Login.this, Dashboard.class));
-
+            Toast.makeText(this, "wrong details", Toast.LENGTH_SHORT).show();
         }
     }
 
