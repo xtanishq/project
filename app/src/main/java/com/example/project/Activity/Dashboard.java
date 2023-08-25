@@ -43,6 +43,8 @@ update.setOnClickListener(new View.OnClickListener() {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(Dashboard.this, Common.getName(Dashboard.this)+ "Data deleted", Toast.LENGTH_SHORT).show();
+
                 PreferenceManager.getDefaultSharedPreferences(getBaseContext()).edit().clear().apply();
                 Toast.makeText(Dashboard.this, Common.getName(Dashboard.this)+ "Data deleted", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(Dashboard.this,SignUp.class));
