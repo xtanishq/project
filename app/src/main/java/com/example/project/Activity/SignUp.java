@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.project.MainActivity;
 import com.example.project.R;
@@ -19,7 +20,7 @@ import com.example.project.R;
 public class SignUp extends AppCompatActivity {
     EditText edfullname,edemail,edpassword,eddob,edgender;
     Button signup;
-    String fullname,email,password,dob,gender;
+    String fullname,email,password,dob,gender = "";
     SharedPreferences sp;
     private RadioGroup radioGroup;
     private RadioButton radioButton;
@@ -36,14 +37,29 @@ public class SignUp extends AppCompatActivity {
         eddob= findViewById(R.id.dob);
         signup= findViewById(R.id.signup2);
         radioGroup= findViewById(R.id.radiogrp);
-//        radioButton = (RadioButton) findViewById(selectedId);
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                RadioButton rb = radioGroup.findViewById(i);
+                boolean isChecked = rb.isChecked();
+                if (isChecked){
+                    gender = rb.getText().toString();
+                    Toast.makeText(SignUp.this, gender, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
-        String selectedId = String.valueOf(radioGroup.getCheckedRadioButtonId());
+
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-editTextToString();
+                if(gender == ""){
+                    Toast.makeText(SignUp.this, "select gender", Toast.LENGTH_SHORT).show();
+                }else {
+                    editTextToString();
+                }
             }
         });
 
@@ -54,7 +70,6 @@ editTextToString();
         fullname=edfullname.getText().toString().trim();
         email=edemail.getText().toString().trim();
         password=edpassword.getText().toString().trim();
-        dob=eddob.getText().toString().trim();
         dob=eddob.getText().toString().trim();
         upload();
 
