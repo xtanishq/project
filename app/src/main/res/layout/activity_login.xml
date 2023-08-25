@@ -60,7 +60,7 @@
             android:transitionName="name">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/email"
+                android:id="@+id/lemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text">
@@ -77,7 +77,7 @@
             android:transitionName="name">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/password"
+                android:id="@+id/lpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text">
@@ -96,6 +96,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
+            android:id="@+id/txt"
             android:layout_height="wrap_content"
             android:text="Don't have an account? Registration here">
 
