@@ -135,16 +135,19 @@
                             <RadioGroup
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/radiogrp"
 
                                 >
                                 <RadioButton
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:id="@+id/male"
                                     android:text="male">
 
                                 </RadioButton> <RadioButton
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/female"
                                 android:text="female">
 
                             </RadioButton>

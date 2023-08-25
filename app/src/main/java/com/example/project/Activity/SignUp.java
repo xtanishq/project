@@ -9,6 +9,8 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.project.MainActivity;
@@ -19,6 +21,8 @@ public class SignUp extends AppCompatActivity {
     Button signup;
     String fullname,email,password,dob,gender;
     SharedPreferences sp;
+    private RadioGroup radioGroup;
+    private RadioButton radioButton;
     SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +35,11 @@ public class SignUp extends AppCompatActivity {
         edpassword =findViewById(R.id.password);
         eddob= findViewById(R.id.dob);
         signup= findViewById(R.id.signup2);
+        radioGroup= findViewById(R.id.radiogrp);
+//        radioButton = (RadioButton) findViewById(selectedId);
 
 
-
+        String selectedId = String.valueOf(radioGroup.getCheckedRadioButtonId());
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,6 +54,7 @@ editTextToString();
         fullname=edfullname.getText().toString().trim();
         email=edemail.getText().toString().trim();
         password=edpassword.getText().toString().trim();
+        dob=eddob.getText().toString().trim();
         dob=eddob.getText().toString().trim();
         upload();
 
